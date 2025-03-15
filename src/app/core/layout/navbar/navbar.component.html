@@ -1,0 +1,104 @@
+<nav class="bg-light fixed top-0 left-0 w-full z-50  border-gray-200">
+  <div class="max-w-screen-xl   flex flex-wrap items-center justify-between mx-auto py-4">
+  <a routerLink="/home" class="flex  space-x-3 rtl:space-x-reverse">
+      <img src="images/freshcart-logo (1).svg" class="text-center lg:w-full  md:w-full sm:w-full w-30" alt="Logo freshcart">
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+  </a>
+  <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+    <ul class="flex  md-gap-x-1 gap-x-3">
+      @if (isAuthPage) {
+      <li>
+        <a routerLink="/auth/register" routerLinkActive="!text-main"
+          >Register</a
+        >
+      </li>
+      <li>
+        <a routerLink="/auth/login" routerLinkActive="!text-main">Login</a>
+      </li>
+      }
+    </ul>
+    @if (!isAuthPage) {
+    <ul class="flex   md-gap-x-3 gap-x-2 sm:gap-x-2  lg:gap-x-3  " >
+    
+      <li class="">
+        <a
+          routerLink="/cart"
+          routerLinkActive="!text-main"
+          class="block mx-2  relative text-gray-500 hover:text-main"
+          >Cart
+          <i class="fa text-lg fa-cart-shopping   hover:text-main"></i>  <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-4 -end-4 dark:border-gray-900">{{navbarCounter}}</div>
+          </a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/wishlist"
+          routerLinkActive="!text-main"
+          class="block mx-2 relative text-gray-500 hover:text-main"
+          >WishList
+          <i class="fa text-lg fa-heart  hover:text-main"></i>  <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-4 -end-4 dark:border-gray-900">{{navbarwishCounter}}</div>
+          </a
+        >
+      </li> 
+      <li>
+        <a routerLink="/auth/logout" class="hover:text-main text-gray-500 " (click)="logout()" routerLinkActive="!text-main">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+      </li>
+    </ul>
+    }      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2  justify-center text-sm text-gray-500 rounded-lg md:hidden hover:text-main  focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 "  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+  </div>
+  @if (!isAuthPage) {
+  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <ul
+    class="font-medium flex flex-col p-4 md:p-0 mt-4 border-main rounded-lg bg-light md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-light dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+  >
+    <li>
+      <a
+        routerLink="/home"
+        routerLinkActive="!text-main"
+        class="block py-2 px-2 text-gray-500 hover:text-main"
+        >Home</a
+      >
+    </li>
+  
+    <li>
+      <a
+        routerLink="/products"
+        routerLinkActive="!text-main"
+        class="block py-2 px-2 text-gray-500 hover:text-main"
+        >Products</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/categories"
+        routerLinkActive="!text-main"
+        class="block py-2 px-2 text-gray-500 hover:text-main"
+        >Categories</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/brands"
+        routerLinkActive="!text-main"
+        class="block py-2 px-2 text-gray-500 hover:text-main"
+        >Brands</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/allorders"
+        routerLinkActive="!text-main"
+        class="block py-2 px-2 text-gray-500 hover:text-main"
+        >Ordars</a
+      >
+    </li>
+  </ul>
+  </div>
+}
+  </div>
+</nav>

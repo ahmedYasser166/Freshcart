@@ -1,0 +1,13 @@
+<div class="grid gap-10 lg:grid-cols-4 my-15 container mx-auto md:grid-cols-2">
+    @for (brand of brands; track $index) {
+    <div class="shadow-lg rounded-md">
+      <img
+        [src]="brand.image"
+        class="w-full h-[350px] rounded-md"
+        [alt]="brand.name"
+        [title]="brand.name"
+      />
+      <h3 class="p-4 font-bold border rounded-md border-gray-300 text-center">{{ brand.name }}</h3>
+    </div>  
+    }
+  </div>

@@ -1,0 +1,83 @@
+
+   <div *ngIf="orders && orders.length > 0" class=" container  mx-auto mt-[40px] font-[var(--font-main)]">
+    <h1 class="text-2xl font-semibold text-main mb-4">Your Orders :</h1>
+  
+    <div *ngFor="let order of orders" 
+         class="border border-main  rounded-lg p-6 mb-6 bg-light shadow-main">
+      
+      <!-- Order Header -->
+      <div class="flex justify-between items-center border-b pb-4">
+        <div>
+          <p class="text-sm text-gray-600">ORDER PLACED</p>
+          <p class="text-md font-semibold text-gray-800">{{ order.createdAt | date: 'mediumDate' }}</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600">TOTAL</p>
+          <p class="text-md font-semibold text-gray-800">${{ order.totalOrderPrice }}</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600">SHIP TO</p>
+          <p class="text-md font-semibold text-gray-800">{{ order.shippingAddress.details }}</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600">STATUS</p>
+          <p class="text-md font-semibold" 
+             [ngClass]="order.isDelivered ? 'text-main' : 'text-yellow-600'">
+            <i class="fas" [ngClass]="order.isDelivered ? 'fa-truck' : 'fa-hourglass-half'"></i>
+            {{ order.isDelivered ? 'Delivered' : 'Pending' }}
+          </p>
+        </div>
+      </div>
+  
+      <!-- Product Details -->
+      <div *ngFor="let item of order.cartItems" 
+           class="product flex items-center gap-6 mt-4 border-b pb-4 bg-white p-4 rounded-lg shadow-sm">
+        <img [src]="item.product.imageCover" 
+             alt="{{ item.product.title }}" 
+             class="w-20 h-20 object-cover rounded-md shadow-md">
+        <div>
+          <p class="text-lg font-semibold text-gray-800">{{ item.product.title }}</p>
+          <p class="text-sm text-gray-600">
+            <i class="fas fa-tag text-main"></i> Price: ${{ item.price }}
+          </p>
+          <p class="text-sm text-gray-600">
+            <i class="fas fa-hashtag text-blue-950"></i> Quantity: {{ item.count }}
+          </p>
+          <p class="text-sm  text-gray-600 ">
+            <i class="fas text-rating fa-star"></i> Rating: {{ item.product.ratingsAverage }} ({{ item.product.ratingsQuantity }} Reviews)
+          </p>
+        </div>
+    
+      </div>
+  
+      <!-- Payment & Delivery Details -->
+      <div class="mt-4 flex justify-between items-center">
+        <div>
+          <p class="text-sm text-gray-600">PAYMENT METHOD</p>
+          <p class="text-md font-semibold text-gray-800">
+            <i class="fas fa-credit-card text-main"></i> {{ order.paymentMethodType | uppercase }}
+          </p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600">PAYMENT STATUS</p>
+          <p class="text-md font-semibold" 
+             [ngClass]="order.isPaid ? 'text-main' : 'text-red-600'">
+            <i class="fas" [ngClass]="order.isPaid ? 'fa-check-circle' : 'fa-times-circle'"></i> 
+            {{ order.isPaid ? 'Paid' : 'Not Paid' }}
+          </p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600">SHIPPING ADDRESS</p>
+          <p class="text-md font-semibold text-gray-800">
+            <i class="fas fa-map-marker-alt text-main"></i> {{ order.shippingAddress.city }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p *ngIf="!orders || orders.length === 0" 
+     class="text-center text-2xl text-gray-500 mt-6">
+    <i class="fas fa-exclamation-circle text-red-500"></i> No Orders Found
+  </p>
+  

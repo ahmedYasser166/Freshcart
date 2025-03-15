@@ -1,0 +1,13 @@
+<app-navbar />
+<div class="pt-[60px] ">
+  <router-outlet />
+</div>
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#0aad0a"
+  type="ball-spin-clockwise-fade-rotating"
+  [fullScreen]="true"
+  ><p class="text-main font-bold">Loading...</p></ngx-spinner
+>
+<app-footer />

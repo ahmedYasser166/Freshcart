@@ -1,0 +1,48 @@
+:root {
+    --color-noon-main: #ffdb00; /* اللون الأصفر المميز لنون */
+    --color-noon-dark: #121212; /* اللون الأسود المستخدم في نون */
+    --color-light: #f8f9fa;
+    --shadow-main: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+                   rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    --font-main: "Cairo", sans-serif;
+    --color-rating: #ffc908;
+  }
+  
+  body {
+    font-family: var(--font-main) !important;
+  }
+  
+  .wish-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: var(--shadow-main);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .wish-item:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .wish-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  
+  .wish-item .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-noon-main);
+  }
+  
+  .wish-item .rating {
+    color: var(--color-rating);
+    font-size: 14px;
+  }
+  

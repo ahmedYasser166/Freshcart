@@ -1,0 +1,5 @@
+<div class=" grid gap-7 mt-7 mb-7 lg:grid-cols-5  container mx-auto  md:grid-cols-3">
+@for (product of products; track $index) {
+   <app-product-item [product]="product"  (addToCart)="addProductToCart($event)"  (AddToWishList)="AddProductToWishList($event)"  />
+}
+</div>

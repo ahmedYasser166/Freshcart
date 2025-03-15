@@ -1,0 +1,9 @@
+<div class="mb-4">
+  <h2 class="text-4xl mb-4">Shop Populer Categories</h2>
+<owl-carousel-o   [options]="customOptions">
+@for (catecory of categories; track $index) {
+    <ng-template carouselSlide [id]="catecory._id">
+        <img [src]="catecory.image" class="h-[250px]"   [alt]="catecory.name" [title]="catecory.name">
+      </ng-template>}
+  </owl-carousel-o>
+</div>

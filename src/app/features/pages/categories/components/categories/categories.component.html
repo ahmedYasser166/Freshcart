@@ -1,0 +1,13 @@
+<div class="grid gap-10 lg:grid-cols-4 my-15 container mx-auto md:grid-cols-2">
+  @for (catecory of categories; track $index) {
+  <div class="shadow-lg rounded-md">
+    <img
+      [src]="catecory.image"
+      class="w-full h-[350px] rounded-md"
+      [alt]="catecory.name"
+      [title]="catecory.name"
+    />
+    <h3 class="p-4 font-bold text-center">{{ catecory.name }}</h3>
+  </div>
+  }
+</div>
